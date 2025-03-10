@@ -1,6 +1,5 @@
-# Поиск наименьшего числа, представимого двумя способами как сумма кубов
 def find_smallest_taxicab_number():
-    cubes = {i**3: i for i in range(1, 100)}  # Предварительно вычисляем кубы
+    cubes = {i**3: i for i in range(1, 100)} 
     sums_of_cubes = {}
     for a in range(1, 100):
         for b in range(a, 100):
@@ -14,7 +13,7 @@ def find_smallest_taxicab_number():
         if len(sums_of_cubes[s]) >= 2:
             return s, sums_of_cubes[s]
 
-# Вывод результата
+
 result, representations = find_smallest_taxicab_number()
 print(f"Наименьшее число: {result}")
 print("Представления:", representations)
