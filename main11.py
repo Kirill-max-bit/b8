@@ -12,7 +12,7 @@ for worker in range(workers):
         salary = int(input(prompt))
         salary_table[worker][month] = salary
 
-# а) Общая сумма, выплаченная за квартал всем работникам
+
 total_salary_all = sum(sum(row) for row in salary_table)
 print(f"\nОбщая сумма, выплаченная за квартал всем работникам: {total_salary_all}")
 
@@ -22,7 +22,7 @@ for worker in range(workers):
     total_salary_worker = sum(salary_table[worker])
     print(f"Работник {worker + 1}: {total_salary_worker}")
 
-# в) Общая зарплата всех работников за каждый месяц
+
 print("\nОбщая зарплата всех работников за каждый месяц:")
 for month in range(months):
     total_salary_month = sum(row[month] for row in salary_table)

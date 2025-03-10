@@ -1,16 +1,15 @@
-sportsmen = 8
-sports = 5
+sportsmen, sports = 8, 5
+table = [[0]*sports for _ in range(sportsmen)]
 
-table = [[0 for _ in range(sports)] for _ in range(sportsmen)]
+for sport in range(sports):
+    for man in range(sportsmen):
+        while True:
+            try:
+                prompt = f"Балл вида {sport+1} для спортсмена {man+1}: "
+                table[man][sport] = int(input(prompt))
+                break
+            except ValueError:
+                print("Введите целое число!")
 
-for sport_idx in range(sports):
-    for sportsman_idx in range(sportsmen):
-        prompt = f"Введите балл для вида {sport_idx + 1}, спортсмена {sportsman_idx + 1}: "
-        value = input(prompt)
-        table[sportsman_idx][sport_idx] = int(value)
-        print(f"\r{prompt}{value} {value}", end='\n')
-
-# Вывод таблицы
 print("\nРезультат:")
-for row in table:
-    print(' '.join(map(str, row)))
+print('\n'.join(' '.join(map(str, row)) for row in table))
