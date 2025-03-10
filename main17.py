@@ -1,10 +1,8 @@
-# а) Для каждого работника — в какой из месяцев он получил наибольшую зарплату
-for i, worker in enumerate(salaries):
-    max_month = worker.index(max(worker)) + 1
-    print(f"Работник {i+1} получил наибольшую зарплату в месяце {max_month}")
+# а) Месяц с максимальной зарплатой для каждого работника
+best_month_per_worker = [row.index(max(row)) + 1 for row in salaries]
 
+# б) Работник с максимальной зарплатой в каждом месяце
+best_worker_per_month = [monthly.index(max(monthly)) + 1 for monthly in zip(*salaries)]
 
-for month in range(3):
-    max_salary = max(salaries[i][month] for i in range(len(salaries)))
-    worker_index = [salaries[i][month] for i in range(len(salaries))].index(max_salary) + 1
-    print(f"В месяце {month+1} наибольшую зарплату получил работник {worker_index}")
+print("а) Лучший месяц для каждого работника:", best_month_per_worker)
+print("б) Лучший работник в каждом месяце:", best_worker_per_month)
