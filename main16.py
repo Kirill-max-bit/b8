@@ -14,12 +14,13 @@ salaries = [
     [35000, 34000, 36000]
 ]
 
-
 # а) Максимальная зарплата
 max_salary = max(max(row) for row in salaries)
 
 # б) Номер работника с максимальной суммой за квартал
-worker_with_max_total = max(range(len(salaries)), key=lambda i: sum(salaries[i]))
+worker_with_max_total = max(
+    range(len(salaries)), key=lambda i: sum(salaries[i])
+)
 
 # в) Месяц с максимальной общей зарплатой
 monthly_totals = [sum(month) for month in zip(*salaries)]
