@@ -1,29 +1,22 @@
-# Инициализация таблицы зарплат
-workers = 12
-months = 3
+workers, months = 12, 3
+salary = [[0]*months for _ in range(workers)]
 
-# Создаем таблицу для хранения зарплат
-salary_table = [[0 for _ in range(months)] for _ in range(workers)]
+for w in range(workers):
+    for m in range(months):
+        while True:
+            try:
+                salary[w][m] = int(input(f"Работник {w+1}, месяц {m+1}: "))
+                break
+            except ValueError:
+                print("Введите целое число!")
 
-# Ввод данных
-for worker in range(workers):
-    for month in range(months):
-        prompt = f"Введите зарплату для работника {worker + 1}, месяц {month + 1}: "
-        salary = int(input(prompt))
-        salary_table[worker][month] = salary
+total = sum(map(sum, salary))
+print(f"\nа) Общая сумма: {total}")
 
+print("\nб) Зарплата по работникам:")
+for i, s in enumerate(map(sum, salary), 1):
+    print(f"Работник {i}: {s}")
 
-total_salary_all = sum(sum(row) for row in salary_table)
-print(f"\nОбщая сумма, выплаченная за квартал всем работникам: {total_salary_all}")
-
-# б) Зарплата, полученная за квартал каждым работником
-print("\nЗарплата, полученная за квартал каждым работником:")
-for worker in range(workers):
-    total_salary_worker = sum(salary_table[worker])
-    print(f"Работник {worker + 1}: {total_salary_worker}")
-
-
-print("\nОбщая зарплата всех работников за каждый месяц:")
-for month in range(months):
-    total_salary_month = sum(row[month] for row in salary_table)
-    print(f"Месяц {month + 1}: {total_salary_month}")
+print("\nв) Зарплата по месяцам:")
+for i, s in enumerate(map(sum, zip(*salary)), 1):
+    print(f"Месяц {i}: {s}")
