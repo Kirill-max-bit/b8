@@ -8,7 +8,13 @@ def min_bills_for_amount(amount, denominations):
     return result
 
 
+# Доступные номиналы купюр
 denominations = [1, 2, 4, 8, 16, 32, 64]
+
+# Ввод суммы n
 n = int(input("Введите сумму n: "))
+
+# Вывод минимального количества купюр для сумм от n до n + 10
 for i in range(n, n + 11):
-    print(f"Минимальное количество купюр для {i}: {min_bills_for_amount(i,denominations)}")
+    bills = min_bills_for_amount(i, denominations)
+    print(f"Минимальное количество купюр для {i}: {bills}")
