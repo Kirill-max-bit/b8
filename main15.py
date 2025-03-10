@@ -1,14 +1,20 @@
-# Ввод данных
-athletes = [
-    [10, 9, 8, 7, 6],
+# Баллы спортсменов (8 спортсменов, 5 видов спорта)
+scores = [
+    [10, 9, 8, 7, 6],  # Баллы первого спортсмена
     [9, 8, 7, 6, 5],
-    # ... остальные спортсмены
+    [8, 7, 6, 5, 4],
+    [7, 6, 5, 4, 3],
+    [6, 5, 4, 3, 2],
+    [5, 4, 3, 2, 1],
+    [4, 3, 2, 1, 0],
+    [3, 2, 1, 0, 0]
 ]
 
-# а) Максимальная из оценок в таблице
-max_score = max(max(scores) for scores in athletes)
-print(f"Максимальная оценка: {max_score}")
+# а) Максимальная оценка в таблице
+max_score = max(max(row) for row in scores)
 
-# б) Сколько баллов набрал победитель соревнований
-winner_score = max(sum(scores) for scores in athletes)
-print(f"Баллы победителя: {winner_score}")
+# б) Сумма баллов победителя
+winner_total = max(sum(row) for row in scores)
+
+print("а) Максимальная оценка:", max_score)
+print("б) Баллы победителя:", winner_total)
